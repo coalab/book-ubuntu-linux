@@ -30,88 +30,88 @@ html = f'''<!DOCTYPE html>
 <title>이것이 우분투 리눅스다</title>
 <style>
 *{{box-sizing:border-box;margin:0;padding:0}}
-body{{background:#2c3e6b;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans-serif;height:100vh;display:flex;flex-direction:column;overflow:hidden;user-select:none}}
+body{{background:#e8e8e8;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI','Noto Sans KR',sans-serif;height:100vh;display:flex;flex-direction:column;overflow:hidden;user-select:none}}
 
 /* 헤더 */
-.hd{{background:linear-gradient(135deg,#1a2547,#1e3a8a);padding:8px 20px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;box-shadow:0 2px 10px rgba(0,0,0,.4);height:46px}}
-.hd h1{{color:#93c5fd;font-size:.9rem;font-weight:700}}
-.hd .inf{{color:#60a5fa;font-size:.78rem}}
-.pdf-btn{{background:rgba(37,99,235,.7);color:#fff;border:none;padding:4px 12px;border-radius:12px;font-size:.72rem;cursor:pointer;transition:.2s;display:flex;align-items:center;gap:4px}}
-.pdf-btn:hover{{background:#2563eb}}
+.hd{{background:#fff;border-bottom:1px solid #d1d5db;padding:6px 20px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;height:42px}}
+.hd h1{{color:#1e3a8a;font-size:.85rem;font-weight:700}}
+.hd .inf{{color:#6b7280;font-size:.75rem}}
+.pdf-btn{{background:#2563eb;color:#fff;border:none;padding:4px 12px;border-radius:6px;font-size:.72rem;cursor:pointer;transition:.2s}}
+.pdf-btn:hover{{background:#1d4ed8}}
 
 /* 뷰어 */
-.viewer{{flex:1;height:0;display:flex;align-items:center;justify-content:center;padding:16px 8px;min-height:0;gap:0}}
+.viewer{{flex:1;height:0;display:flex;align-items:center;justify-content:center;padding:12px 8px;min-height:0;gap:0}}
 
 /* 네비게이션 버튼 */
-.nav{{background:rgba(37,99,235,.7);color:#fff;border:none;width:38px;height:38px;border-radius:50%;font-size:1.1rem;cursor:pointer;transition:.2s;flex-shrink:0;margin:0 8px}}
-.nav:hover{{background:#2563eb;transform:scale(1.1)}}
-.nav:disabled{{background:rgba(255,255,255,.08);cursor:default;transform:none}}
+.nav{{background:#fff;color:#374151;border:1px solid #d1d5db;width:36px;height:36px;border-radius:50%;font-size:1rem;cursor:pointer;transition:.2s;flex-shrink:0;margin:0 8px;box-shadow:0 1px 3px rgba(0,0,0,.1)}}
+.nav:hover{{background:#f3f4f6;border-color:#9ca3af}}
+.nav:disabled{{background:#f9fafb;color:#d1d5db;cursor:default;box-shadow:none}}
 
 /* 책 컨테이너 */
-.book{{display:flex;box-shadow:0 20px 60px rgba(0,0,0,.7);border-radius:2px 6px 6px 2px;position:relative}}
-.book::after{{content:'';position:absolute;top:0;left:50%;width:6px;height:100%;background:linear-gradient(90deg,rgba(0,0,0,.3),rgba(0,0,0,.05),rgba(0,0,0,.3));transform:translateX(-50%);z-index:10;pointer-events:none}}
+.book{{display:flex;box-shadow:0 8px 32px rgba(0,0,0,.25);position:relative}}
+.book::after{{content:'';position:absolute;top:0;left:50%;width:3px;height:100%;background:linear-gradient(90deg,rgba(0,0,0,.12),rgba(0,0,0,.04),rgba(0,0,0,.12));transform:translateX(-50%);z-index:10;pointer-events:none}}
 
 /* 페이지 */
 .page{{background:#fff;overflow:hidden;display:flex;flex-direction:column;flex-shrink:0}}
-.page.left{{border-radius:2px 0 0 2px;box-shadow:-4px 0 15px rgba(0,0,0,.2)}}
-.page.right{{border-radius:0 6px 6px 0;box-shadow:4px 0 15px rgba(0,0,0,.2)}}
+.page.left{{border-right:1px solid #e5e7eb}}
+.page.right{{}}
 
 /* 표지 */
-.page.cover-l{{background:linear-gradient(135deg,#1a2547,#1e3a8a)}}
-.page.cover-r{{background:linear-gradient(135deg,#1e3a8a,#2563eb)}}
-.cover-content{{display:flex;flex-direction:column;align-items:center;justify-content:center;height:100%;text-align:center;padding:8%}}
-.cov-ic{{font-size:3em;margin-bottom:.3em}}
-.cov-t{{font-size:1.5em;font-weight:900;color:#fff;line-height:1.2;margin-bottom:.3em}}
-.cov-t span{{color:#93c5fd}}
-.cov-s{{color:#93c5fd;font-size:.65em;margin-bottom:1em;line-height:1.6}}
-.cov-b{{background:#2563eb;color:#fff;padding:.3em .8em;border-radius:20px;font-size:.55em;font-weight:600;border:1px solid #93c5fd}}
-.cov-toc{{color:#93c5fd;font-size:.52em;text-align:left;margin-top:1em;line-height:1.9;width:100%}}
-.cov-toc strong{{color:#fff;display:block;margin-bottom:.3em;font-size:1.1em}}
+.cov-wrap{{display:flex;flex-direction:column;height:100%;padding:8% 10%}}
+.cov-top{{border-bottom:1px solid #e5e7eb;padding-bottom:.6em;margin-bottom:1.5em;font-size:.5em;color:#9ca3af}}
+.cov-body{{flex:1;display:flex;flex-direction:column;justify-content:center}}
+.cov-ic{{font-size:2.5em;margin-bottom:.3em}}
+.cov-t{{font-size:1.6em;font-weight:900;color:#111827;line-height:1.25;margin-bottom:.4em}}
+.cov-sub{{font-size:.7em;color:#374151;margin-bottom:.7em}}
+.cov-line{{width:3em;height:3px;background:#2563eb;margin-bottom:.8em}}
+.cov-desc{{font-size:.6em;color:#6b7280;line-height:1.7;margin-bottom:1em}}
+.cov-date{{font-size:.55em;color:#9ca3af}}
+.cov-toc{{font-size:.55em;color:#374151;line-height:2;border-top:1px solid #e5e7eb;padding-top:1em}}
+.cov-toc strong{{display:block;color:#1e3a8a;font-size:1.1em;margin-bottom:.4em}}
+.cov-ft{{font-size:.46em;color:#9ca3af;text-align:center;padding-top:.6em;border-top:1px solid #e5e7eb;margin-top:auto}}
 
 /* 페이지 헤더 */
-.pg-hd{{background:linear-gradient(90deg,#1e3a8a,#2563eb);color:#fff;padding:.35em .7em;font-size:.52em;font-weight:600;flex-shrink:0}}
-.pg-hd em{{color:#93c5fd;font-style:normal;margin-right:.5em}}
+.pg-hd{{border-bottom:1px solid #e5e7eb;padding:.35em 1.2em;font-size:.46em;color:#9ca3af;font-weight:400;flex-shrink:0}}
 
 /* 본문 */
-.pg-bd{{flex:1;padding:.8em .95em;overflow:hidden;color:#1e293b;line-height:1.62;font-size:.68em}}
-.pg-bd h1{{font-size:1.3em;font-weight:800;color:#1e3a8a;border-bottom:2px solid #2563eb;padding-bottom:.25em;margin-bottom:.5em;line-height:1.3}}
-.pg-bd h2{{font-size:1em;font-weight:700;color:#1e3a8a;border-left:3px solid #2563eb;padding-left:.45em;margin:.6em 0 .3em}}
-.pg-bd h3{{font-size:.88em;font-weight:600;color:#334155;margin:.4em 0 .2em}}
-.pg-bd p{{margin-bottom:.38em}}
-.pg-bd ul,.pg-bd ol{{padding-left:1.1em;margin:.2em 0 .4em}}
-.pg-bd li{{margin:.1em 0}}
-.pg-bd blockquote{{border-left:3px solid #2563eb;padding:.3em .6em;background:#eff6ff;color:#374151;font-style:italic;margin:.35em 0;font-size:.92em}}
-.pg-bd pre{{background:#1e293b;color:#e2e8f0;padding:.5em .7em;border-radius:4px;font-size:.75em;overflow:hidden;margin:.35em 0;line-height:1.4;white-space:pre-wrap;word-break:break-all}}
-.pg-bd code{{background:#eff6ff;color:#1d4ed8;padding:.1em .25em;border-radius:3px;font-size:.88em}}
+.pg-bd{{flex:1;padding:.9em 1.2em;overflow:hidden;color:#1f2937;line-height:1.65;font-size:.66em}}
+.pg-bd h1{{font-size:1.5em;font-weight:900;color:#111827;border-bottom:3px solid #2563eb;padding-bottom:.3em;margin-bottom:.6em;line-height:1.3}}
+.pg-bd h2{{font-size:1.05em;font-weight:700;color:#2563eb;margin:.7em 0 .3em}}
+.pg-bd h3{{font-size:.92em;font-weight:700;color:#111827;margin:.5em 0 .2em}}
+.pg-bd p{{margin-bottom:.4em}}
+.pg-bd ul,.pg-bd ol{{padding-left:1.2em;margin:.2em 0 .4em}}
+.pg-bd li{{margin:.15em 0}}
+.pg-bd blockquote{{border-left:3px solid #2563eb;padding:.3em .7em;background:#eff6ff;color:#374151;font-style:italic;margin:.4em 0;font-size:.93em;border-radius:0 4px 4px 0}}
+.pg-bd pre{{background:#1e293b;color:#e2e8f0;padding:.55em .8em;border-radius:4px;font-size:.74em;overflow:hidden;margin:.4em 0;line-height:1.45;white-space:pre-wrap;word-break:break-all}}
+.pg-bd code{{background:#f0f4ff;color:#1d4ed8;padding:.1em .25em;border-radius:3px;font-size:.87em}}
 .pg-bd pre code{{background:none;color:inherit;padding:0;font-size:1em}}
-.pg-bd table{{width:100%;border-collapse:collapse;margin:.35em 0;font-size:.82em}}
-.pg-bd th{{background:#1e3a8a;color:#fff;padding:.25em .4em;text-align:left}}
-.pg-bd td{{padding:.2em .4em;border-bottom:1px solid #e2e8f0}}
-.pg-bd tr:nth-child(even) td{{background:#f8fafc}}
-.pg-bd strong{{color:#1e3a8a;font-weight:700}}
-.pg-bd hr{{border:none;border-top:1px solid #e2e8f0;margin:.35em 0}}
+.pg-bd table{{width:100%;border-collapse:collapse;margin:.4em 0;font-size:.83em}}
+.pg-bd th{{background:#2563eb;color:#fff;padding:.28em .5em;text-align:left;font-weight:600}}
+.pg-bd td{{padding:.22em .5em;border-bottom:1px solid #e5e7eb}}
+.pg-bd tr:nth-child(even) td{{background:#f9fafb}}
+.pg-bd strong{{color:#111827;font-weight:700}}
+.pg-bd hr{{border:none;border-top:1px solid #e5e7eb;margin:.4em 0}}
 
 /* 페이지 푸터 */
-.pg-ft{{padding:.25em .7em;display:flex;justify-content:space-between;border-top:1px solid #e2e8f0;font-size:.46em;color:#94a3b8;background:#f8fafc;flex-shrink:0}}
+.pg-ft{{padding:.3em .7em;text-align:center;border-top:1px solid #e5e7eb;font-size:.46em;color:#9ca3af;flex-shrink:0}}
 
 /* 플립 애니메이션 */
-.book.flip-next{{animation:fn .5s ease}}
-.book.flip-prev{{animation:fp .5s ease}}
-@keyframes fn{{0%{{transform:perspective(1200px) rotateY(0)}}40%{{transform:perspective(1200px) rotateY(-4deg)}}100%{{transform:perspective(1200px) rotateY(0)}}}}
-@keyframes fp{{0%{{transform:perspective(1200px) rotateY(0)}}40%{{transform:perspective(1200px) rotateY(4deg)}}100%{{transform:perspective(1200px) rotateY(0)}}}}
+.book.flip-next{{animation:fn .4s ease}}
+.book.flip-prev{{animation:fp .4s ease}}
+@keyframes fn{{0%{{transform:perspective(1200px) rotateY(0)}}40%{{transform:perspective(1200px) rotateY(-3deg)}}100%{{transform:perspective(1200px) rotateY(0)}}}}
+@keyframes fp{{0%{{transform:perspective(1200px) rotateY(0)}}40%{{transform:perspective(1200px) rotateY(3deg)}}100%{{transform:perspective(1200px) rotateY(0)}}}}
 
 /* 하단 바 */
-.bottom{{flex-shrink:0;display:flex;align-items:center;justify-content:center;gap:12px;padding:6px 16px;background:rgba(0,0,0,.2)}}
-.prog{{flex:1;max-width:300px;height:4px;background:rgba(255,255,255,.15);border-radius:2px;cursor:pointer}}
+.bottom{{flex-shrink:0;display:flex;align-items:center;justify-content:center;gap:12px;padding:5px 16px;background:#fff;border-top:1px solid #d1d5db}}
+.prog{{flex:1;max-width:300px;height:3px;background:#e5e7eb;border-radius:2px;cursor:pointer}}
 .prog-b{{height:100%;background:#2563eb;border-radius:2px;transition:width .3s}}
-.pg-input{{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#93c5fd;padding:2px 6px;border-radius:4px;font-size:.72rem;width:60px;text-align:center}}
+.pg-input{{background:#f9fafb;border:1px solid #d1d5db;color:#374151;padding:2px 6px;border-radius:4px;font-size:.72rem;width:60px;text-align:center}}
 .pg-input:focus{{outline:none;border-color:#2563eb}}
 
 /* 모바일: 단일 페이지 */
 @media(max-width:640px){{
   .page.right{{display:none}}
   .book::after{{display:none}}
-  .page.left{{border-radius:4px}}
 }}
 </style>
 </head>
@@ -120,7 +120,7 @@ body{{background:#2c3e6b;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI'
   <h1>🐧 이것이 우분투 리눅스다</h1>
   <div style="display:flex;align-items:center;gap:12px">
     <div class="inf"><span id="pn">1</span> / <span id="pt">-</span></div>
-    <button class="pdf-btn" onclick="window.print()">📄 인쇄/PDF</button>
+    <button class="pdf-btn" onclick="window.print()">📄 PDF</button>
   </div>
 </div>
 <div class="viewer">
@@ -132,10 +132,10 @@ body{{background:#2c3e6b;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI'
   <button class="nav" id="nb" onclick="go(1)">&#8594;</button>
 </div>
 <div class="bottom">
-  <button class="nav" style="margin:0;width:30px;height:30px;font-size:.8rem" onclick="go(-1)" disabled id="pb2">&#8592;</button>
+  <button class="nav" style="margin:0;width:28px;height:28px;font-size:.8rem" onclick="go(-1)" disabled id="pb2">&#8592;</button>
   <div class="prog" id="prog" onclick="jumpTo(event)"><div class="prog-b" id="bar"></div></div>
   <input class="pg-input" id="pi" value="1" onchange="jumpPage(this.value)" />
-  <button class="nav" style="margin:0;width:30px;height:30px;font-size:.8rem" onclick="go(1)" id="nb2">&#8594;</button>
+  <button class="nav" style="margin:0;width:28px;height:28px;font-size:.8rem" onclick="go(1)" id="nb2">&#8594;</button>
 </div>
 <script>
 const CHAPTERS={chapters_json};
@@ -216,18 +216,18 @@ function resize(){{
 function renderPage(el,page,pgNum){{
   if(!page||page.type==='blank'){{el.innerHTML='<div style="width:100%;height:100%;background:#f8fafc"></div>';return;}}
   if(page.type==='cover-l'){{
-    el.className='page left cover-l';
-    el.innerHTML='<div class="cover-content"><div class="cov-ic">🐧</div><div class="cov-t">이것이<br><span>우분투 리눅스다</span></div><div class="cov-s">컴공 2학년을 위한 실전 우분투 가이드<br>설치부터 서버 운영, 자동화까지</div><div class="cov-b">18챕터 + 부록 &nbsp;|&nbsp; 실습 중심</div></div>';
+    el.className='page left';
+    el.innerHTML='<div class="cov-wrap"><div class="cov-top">이것이 우분투 리눅스다</div><div class="cov-body"><div class="cov-ic">🐧</div><div class="cov-t">이것이<br>우분투 리눅스다</div><div class="cov-sub">컴공 2학년을 위한 실전 우분투 가이드</div><div class="cov-line"></div><div class="cov-desc">설치부터 기본 명령어, 네트워크, 서버 구축,<br>Docker, 쉘 스크립트, 자동화까지<br>단계별로 모든 것을 다룹니다.</div><div class="cov-date">2026년 3월</div></div><div class="cov-ft">— 1 —</div></div>';
     return;
   }}
   if(page.type==='cover-r'){{
-    el.className='page right cover-r';
-    el.innerHTML='<div class="cover-content"><div class="cov-toc"><strong>📚 목차</strong>{toc_str}</div></div>';
+    el.className='page right';
+    el.innerHTML='<div class="cov-wrap"><div class="cov-top">이것이 우분투 리눅스다</div><div class="cov-body"><div class="cov-toc"><strong>목차</strong>{toc_str}</div></div><div class="cov-ft">— 2 —</div></div>';
     return;
   }}
   const side=el.id==='pl'?'left':'right';
   el.className='page '+side;
-  el.innerHTML='<div class="pg-hd"><em>CH'+page.num+'</em>'+page.title+'</div><div class="pg-bd">'+md2html(page.md)+'</div><div class="pg-ft"><span>이것이 우분투 리눅스다</span><span>'+pgNum+'</span></div>';
+  el.innerHTML='<div class="pg-hd">이것이 우분투 리눅스다</div><div class="pg-bd">'+md2html(page.md)+'</div><div class="pg-ft">— '+pgNum+' —</div>';
 }}
 
 function render(){{
