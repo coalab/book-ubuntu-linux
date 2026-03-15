@@ -171,21 +171,21 @@ function resize(){
   const vw=window.innerWidth;
   const hdH=document.querySelector('.hd').offsetHeight||46;
   const botH=document.querySelector('.bottom').offsetHeight||38;
-  const vh=window.innerHeight-hdH-botH;
+  const avH=window.innerHeight-hdH-botH-16;
   const isMobile=vw<=640;
   let w,h;
   if(isMobile){
-    const avW=Math.min(vw-80,400),avH=vh-24;
-    w=avW;h=w*1.414;
-    if(h>avH){h=avH;w=h/1.414;}
-    document.getElementById('pl').style.cssText='width:'+Math.floor(w)+'px;height:'+Math.floor(h)+'px;font-size:'+Math.floor(w/380*12)+'px';
+    h=Math.min(avH,Math.floor((vw-60)*1.414));
+    w=Math.floor(h/1.414);
+    document.getElementById('pl').style.cssText='width:'+w+'px;height:'+h+'px;font-size:'+Math.floor(w/380*12)+'px';
   } else {
-    const avW=Math.min((vw-120)/2,420),avH=vh-24;
-    w=avW;h=w*1.414;
-    if(h>avH){h=avH;w=h/1.414;}
+    const maxW=Math.floor((vw-120)/2);
+    h=avH;
+    w=Math.floor(h/1.414);
+    if(w>maxW){w=maxW;h=Math.floor(w*1.414);}
     const fs=Math.floor(w/380*12)+'px';
-    document.getElementById('pl').style.cssText='width:'+Math.floor(w)+'px;height:'+Math.floor(h)+'px;font-size:'+fs;
-    document.getElementById('pr').style.cssText='width:'+Math.floor(w)+'px;height:'+Math.floor(h)+'px;font-size:'+fs;
+    document.getElementById('pl').style.cssText='width:'+w+'px;height:'+h+'px;font-size:'+fs;
+    document.getElementById('pr').style.cssText='width:'+w+'px;height:'+h+'px;font-size:'+fs;
   }
 }
 
