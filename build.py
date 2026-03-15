@@ -217,7 +217,7 @@ function renderPage(el,page,pgNum){{
   if(!page||page.type==='blank'){{el.innerHTML='<div style="width:100%;height:100%;background:#f8fafc"></div>';return;}}
   if(page.type==='cover-l'){{
     el.className='page left';
-    el.innerHTML='<div class="cov-wrap"><div class="cov-top">이것이 우분투 리눅스다</div><div class="cov-body"><div class="cov-ic">🐧</div><div class="cov-t">이것이<br>우분투 리눅스다</div><div class="cov-sub">컴공 2학년을 위한 실전 우분투 가이드</div><div class="cov-line"></div><div class="cov-desc">설치부터 기본 명령어, 네트워크, 서버 구축,<br>Docker, 쉘 스크립트, 자동화까지<br>단계별로 모든 것을 다룹니다.</div><div class="cov-date">2026년 3월</div></div><div class="cov-ft">— 1 —</div></div>';
+    el.innerHTML='<div class="cov-wrap"><div class="cov-top">이것이 우분투 리눅스다</div><div class="cov-body"><div class="cov-ic">🐧</div><div class="cov-t">이것이<br>우분투 리눅스다</div><div class="cov-sub">IT 인턴과정을 위한 실전 우분투 가이드</div><div class="cov-line"></div><div class="cov-desc">설치부터 기본 명령어, 네트워크, 서버 구축,<br>Docker, 쉘 스크립트, 자동화까지<br>단계별로 모든 것을 다룹니다.</div><div class="cov-date">2026년 3월</div></div><div class="cov-ft">— 1 —</div></div>';
     return;
   }}
   if(page.type==='cover-r'){{
@@ -318,7 +318,7 @@ function printAll(){{
   PAGES.forEach((page,i)=>{{
     if(!page||page.type==='blank')return;
     if(page.type==='cover-l'){{
-      body+=`<div class="page"><div class="cov-wrap"><div class="cov-top">이것이 우분투 리눅스다</div><div class="cov-body"><div class="cov-ic">🐧</div><div class="cov-t">이것이<br>우분투 리눅스다</div><div class="cov-sub">컴공 2학년을 위한 실전 우분투 가이드</div><div class="cov-line"></div><div class="cov-desc">설치부터 기본 명령어, 네트워크, 서버 구축,<br>Docker, 쉘 스크립트, 자동화까지<br>단계별로 모든 것을 다룹니다.</div><div class="cov-date">2026년 3월</div></div><div class="cov-ft">— ${{i+1}} —</div></div></div>`;
+      body+=`<div class="page"><div class="cov-wrap"><div class="cov-top">이것이 우분투 리눅스다</div><div class="cov-body"><div class="cov-ic">🐧</div><div class="cov-t">이것이<br>우분투 리눅스다</div><div class="cov-sub">IT 인턴과정을 위한 실전 우분투 가이드</div><div class="cov-line"></div><div class="cov-desc">설치부터 기본 명령어, 네트워크, 서버 구축,<br>Docker, 쉘 스크립트, 자동화까지<br>단계별로 모든 것을 다룹니다.</div><div class="cov-date">2026년 3월</div></div><div class="cov-ft">— ${{i+1}} —</div></div></div>`;
       return;
     }}
     if(page.type==='cover-r')return;
